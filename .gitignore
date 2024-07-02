@@ -1,0 +1,5 @@
+/node_modules/
+/src/Resources/app/administration/node_modules/
+.idea
+.DS_Store
+/vendor/

@@ -1,0 +1,4 @@
+{% block ct_admin_customer_manager %}
+    <pre v-text="currentCustomerId"></pre>
+    <sw-entity-single-select entity="customer" v-model:value="userData.customFields.easy_cms_management" labelProperty="email"></sw-entity-single-select>
+{% endblock %}

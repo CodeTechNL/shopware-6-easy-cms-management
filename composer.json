@@ -1,0 +1,34 @@
+{
+  "name": "codetech/easy-cms-management",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "CodeTech\\EasyCmsManagement\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "CodeTech\\EasyCmsManagement\\EasyCmsManagement",
+    "label": {
+      "de-DE": "Easy CMS Management",
+      "en-GB": "Easy CMS Management"
+    },
+    "description": {
+      "de-DE": "",
+      "en-GB": "You see something that is in correct on your storefront? With a single click you fly to the required page to work on your customizations!"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.34",
+    "shopware/administration": "6.*",
+    "shopware/core": "6.*",
+    "shopware/storefront": "6.*"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "symfony/runtime": true
+    }
+  }
+}

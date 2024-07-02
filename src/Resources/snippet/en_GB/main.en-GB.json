@@ -1,0 +1,15 @@
+{
+  "ct-easy-cms-management": {
+    "storefront": {
+      "toolbar": {
+        "manage-page": "Manage pageType"
+      },
+      "page-types": {
+        "home": "Homepage",
+        "landing": "Landing page",
+        "product": "Product page",
+        "collection": "Product listing"
+      }
+    }
+  }
+}

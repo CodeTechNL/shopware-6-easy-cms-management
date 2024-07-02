@@ -1,0 +1,41 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_body_inner %}
+
+    {{ parent() }}
+
+    {% set enableEasyCmsManagementToolbar = true %}
+
+
+    {% if enableEasyCmsManagementToolbar %}
+
+        {% set pageType = null %}
+
+        {% if page.landingPage.id %}
+            {% set adminUrl = '/sw/category/landingPage/'~page.landingPage.id~'/cms' %}
+            {% set pageType = 'landing' %}
+        {% elseif page.cmsPage.type == 'product_list' %}
+            {% set adminUrl = '/sw/category/index/'~page.navigationId~'/base' %}
+            {% set pageType = 'collection' %}
+        {% elseif page.cmsPage.type == 'product_detail' %}
+            {% set adminUrl = '/sw/product/detail/'~page.product.parentId~'/base' %}
+            {% set pageType = 'product' %}
+        {% elseif page.cmsPage.name == 'Homepage' %}
+            {% set adminUrl = '/sw/cms/detail/'~page.cmsPage.id %}
+            {% set pageType = 'home' %}
+        {% endif %}
+
+        {% block cms_management %}
+            <div id="ct-easy-cms-management-container">
+                <div class="ct-easy-cms-management-item">
+                    {% if adminUrl %}
+                        {% set pageTypeTranslation = ('ct-easy-cms-management.storefront.page-types.'~pageType) | trans %}
+                        <a target="_blank"
+                           href="{{ app.request.attributes.get('sw-storefront-url') }}/admin#{{ adminUrl }}">{{ 'ct-easy-cms-management.storefront.toolbar.manage-page'|trans( {'pageType': pageTypeTranslation}) }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endblock %}
+
+    {% endif %}
+{% endblock %}
